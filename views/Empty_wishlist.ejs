@@ -1,0 +1,74 @@
+<% layout('./layouts/boilerplate') %>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Wishlist</title>
+   <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+    
+    .container1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+    
+    .empty-wishlist {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+    }
+    
+    h2 {
+        font-size: 24px;
+        color: #dc3545; 
+    }
+    
+    p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #666;
+    }
+    
+    .btn1 {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        background-color: #007bff; 
+        color: white;
+        transition: background-color 0.3s;
+    }
+    
+    .btn1:hover {
+        background-color: #0056b3; 
+    }
+    
+    .empty-image {
+        width: 150px; 
+        margin-top: 20px;
+    }
+    
+   </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="empty-wishlist">
+            <h2>The Wishlist is Empty</h2>
+            <p>Your wishlist is currently empty. Add items you love to it!</p>
+            <a href="/showall" class="btn1 btn-primary">Browse Products</a>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhJgMF4VdR6JdNmOglo2fNoPqzYNN3mV7-5w&s" alt="Empty Wishlist" class="empty-image"> <!-- Optional Image -->
+        </div>
+    </div>
+</body>
+

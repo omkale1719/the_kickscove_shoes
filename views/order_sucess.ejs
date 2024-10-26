@@ -1,0 +1,65 @@
+<% layout('./layouts/boilerplate') %>
+<style>
+    .allbody {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; 
+    }
+    
+    .container {
+        text-align: center;
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .success-logo img {
+        width: 100px; 
+        height: auto;
+    }
+    
+    h1 {
+        color: #4CAF50; 
+        margin: 20px 0;
+    }
+    
+    p {
+        color: #555;
+    }
+    
+    .btn1 {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #007BFF;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    
+    .btn1:hover {
+        background-color: #0056b3;
+    }
+    
+</style>
+<body>
+    <div class="allbody">
+    <div class="container1">
+        <div class="success-logo1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbUjKfc_Ysh3DztKcIf1mgLDgcpWo3IAeohQ&s" alt="Success" />
+        </div>
+        <h1>Order Successful!</h1>
+        <p>Your order has been placed successfully!</p>
+        <p>Thank you for shopping with us!</p>
+        
+        <a href="http://localhost:3000/showall" class="btn1">Go Back to Home</a>
+    </div>
+    </div>
+</body>
+

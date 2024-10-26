@@ -1,0 +1,148 @@
+<% layout('./layouts/boilerplate') %>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    .container1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .empty-wishlist {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #dc3545; 
+    }
+
+    p {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #666;
+    }
+
+    .btn1 {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        background-color: #690ee8;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .btn2 {
+        display: inline-block;
+        width: 50%;
+        padding: 10px 20px;
+        text-align: center;
+        margin-top: 20px;
+        margin-left: 25%;
+        margin-bottom: 2rem;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        background-color: #0d4224; 
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .btn1:hover {
+        background-color: #0056b3; 
+    }
+    .btn2:hover {
+        background-color: #1d6722; 
+    }
+
+    .empty-image {
+        width: 150px;
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .delete-btn {
+        background-color: #dc3545;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .delete-btn:hover {
+        background-color: #c82333;
+    }
+
+</style>
+
+<body>
+    <div class="cart-container">
+        <% if (cart.length === 0) { %>
+            <div class="container1">
+                <div class="empty-wishlist">
+                    <h2>The Cart is Empty</h2>
+                    <p>Your Cart is currently empty. Add items you love to it!</p>
+                    <a href="/showall" class="btn1 btn-primary">Browse Products</a>
+                    <img src="/assets/images/Ecart.jpeg" alt="Empty Wishlist" class="empty-image"> 
+                </div>
+            </div>
+        <% } else { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                       
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cart.forEach(item => { %>
+                        <tr>
+                            <td> <%= item.title %> </td>
+                            <td>&#8377;<%= item.price.toLocaleString("en-IN") %></td>
+                            <td><%= item.quantity %></td>
+                            <td>&#8377;<%= (item.price * item.quantity).toLocaleString("en-IN") %></td>
+            
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <div>
+                <strong>Total Amount: &#8377;<%= cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toLocaleString("en-IN") %></strong>
+            </div>
+        <% } %>
+        <a href="/showall" class="btn2 btn-primary">Continue Shopping</a>
+    </div>
+</body>

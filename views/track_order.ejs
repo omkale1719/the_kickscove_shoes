@@ -1,0 +1,115 @@
+<% layout('./layouts/boilerplate') %>
+
+<style>
+    .track-order {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .track-order h1 {
+        font-size: 2.5em;
+        color: #1a1f71;
+        margin-bottom: 20px;
+    }
+
+    .track-order p {
+        color: #666;
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+
+    .track-order .input-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .track-order input[type="text"] {
+        padding: 10px;
+        font-size: 1.2em;
+        width: 70%;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+
+    .track-order input[type="text"]:focus {
+        border-color: #1a1f71;
+    }
+
+    .track-order button {
+        background-color: #1a1f71;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .track-order button:hover {
+        background-color: #ff8c00;
+    }
+
+    .track-order .order-status {
+        text-align: left;
+        margin-top: 30px;
+    }
+
+    .track-order h2, .track-order h3 {
+        color: #1a1f71;
+    }
+
+    .track-order ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .track-order ul li {
+        background-color: #f0f0f0;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        color: #333;
+    }
+
+    .track-order .tracking-image {
+        max-width: 150px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <main>
+        <div class="track-order">
+            <h1>Track Your Order</h1>
+            <p>Enter your order ID below to track the status of your order.</p>
+
+            <div class="form-section">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAB6CAMAAAC89RUgAAACN1BMVEX/////akxHTlSS0vjmTS5Bsv//kAD5z6kskP/k5OVIVFhTW2D+yafm9/7o6vPpZxz+zrcLII37vY7/06g+TsecjLr1pDEjO8Tr/P+oueb/lADM0O6U1vj/jQA6T1ZOZtCXnt0qP8MrM4+QXyw0PkRjaW4seN/+sF7+xqrZ6/zf5/Qqjv48keD+1sNPWMZSX8r/4ro7qv3oLz17r+lPV6H+mS3sgk22ubs6Qkm7Tz0nNUAXNj+OkpSzb0JrlN89mf3/v6tKo/tYuv3xq6GSTkboZEr+jHfCvchnWXj/oEXmQiDrch+IyvgvElAjLZB0ptf+6d50vfokAEfxi23JnIQb06zYhCS74/rwjmF2en7reWfQ0NKRhp07I1hfT3XkNgDBj2160ebZTTIWIChBVqeoobEFADydlKl9b4y6s8BQPmgAADf/Xjr9uHP/Y2H+gWn54+BBLFwtAFCCeI32zsi4u9fyv7jbw7W5fVevZC5+hboAFIyNl9hlc9E2QZrsm41wnOH74M27g6T0nn2cvuN3TqT9ZA//IDz9OzHRYHfdR1iprcjtQDX1qj7ynAn4x4uHYqfmeoG5mbHAToH/xsr/lEbkiYupW5TiqKrcOk+hdqf2qYf3sVu0mLf0n3bNa37PQz19usVX1dGEXmKAfMPGZlaUSzfOkIaPbko0Qq5ESXgAAAy4npo6N41GTmSvRTMAoEyAQjq1zrgkoGi61NGOwp6bLhcAkR5SJCUmHiNwlaxihZdTdbfM1cgZAAAShUlEQVR4nO2djV9b13nHL0IgXxCyEBgT3mIxYfNSXMd1DMVKSE1kYQ1RWSR14QpIwAJkmyFegmvamlJ7sevEbrdlazvcdus2t97aJk3bdevyx+15zjn3VboX7oviJJ/z+8QgXc49b9/zPOc551wpgsDFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXF9ZnSco5oUyjgrwK9mJRf5FdW8qKQ3BQFQdzMkSs5CX9uJgWhsLKyLJI3+DO3LEgkC1HJG+8OkXtyueUkyRdekKwLtFhRxJ956dNr7+dK17PZdDq7sSRsZtMb2eysSC/O4i9xPbsxuzQu5JckvJYk1/BPUva6IMKds9lsXhBWsnhTek5IZiGnbJaBlWYx5zTcNQ6/s3CLUMjii1nIbTOd3tjYWBJFKBVuWX5Orf/saxyIhAAOdONydlzAvp8jPbyOnQY9mc9KQi6bo6kL2RUAJQpz2c2QkJyFP1E4swgH0sMlmnAdwQGOkDCOCTY3wDrZJZGWJiDrFTIIuO2YaDyNvmeTdNB6WiCmAF0Nfb1CEwCcZHZOTb4CfSzRC5hGAydP7ib9Xshu4q9luDaOuEJgOgXCPA8MNzeSIojCgSv5T6+5ny9p4ITS6ziax8FQJOgyeebJJtfTytgOzabHse+JKxLT141wxqkZLFNGEvQ+gzPH4GD+m+ARQQxOTi6JyygZznKyMIddjmBC0GnKeM7PrqcRCBPp9iR1cyJ0uQbOSrKwkp5jqUiHS2BA4+lCMr8O7ykcaWMF5pzlAgjvTyZz6fSn2uDPkxicWZiY0+iK0rO5zdz6hojTPlE+nU1uqpM2gRPaIHfl4HIO36M5JHHin2U3sbvHgcc4mkl6Gc0NrWkFLm2yWQbii+xSmmTFVU6y5STFJHZoPnsdlc7BpeuF5EoOruQwWpMdG3VYy9n1AiCbDQGG2ULhOvQ4WJMoKg5wJTtXSI7j1ASOTixkiS/MJQvk0mY6nwSJ4sa4KIJlPaemf/Y1l0U4KzegU5chcGbR1jpczWWzS9CpefyTiEEWUe4GmU2WMSyew1sL8GoDDeMGRmtqOpxVcEqZuwE/xpdyAAdNCP3hCuS8tHQjL94Yx+loSTRWiotKFHU/6Qv6S4TBDZ3H/iRq08NlKSn3KXtF75H/zu7WZS0quROFjLdwcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxcXFx2VG7ueTHK4pbW8XnWseK67N54PpOdyMqWl4nSJqx+VRqPvE8a+lC2zOJmTHrJLe+dfv27W/dcl1UaOfctWvXvmzQ6RdPOMwv+e3uSVSzUYRNc/Q7kKY47welplxX/gBVxDjHsPLzlnV/6/YrqNtvuSwqhF3ZPVnajdHvOsvwTnf31ydArxrYvIgXJ15sPg6ebSyFcPwLxWIx47L+5tq6VOX373qfL637vEXF36BsgM4b7orambxzcuDkgI7Nq9CLX2k+/o6T/EKNk1/vqAZN6N3Z8e/h1Q64+o4Cx58C51apqWf3ZhXASfm9zp9avT81s7u7Wz7voswG6Lgbe+cmTx4BndS6ngnox45Xoyec5IdwkA1w+IpOhFh1dTT6Ap1ymPyuam+ubWBThZ244HHGDI4/NT8/X37muQVwwr2E0G130w6D89JF1JUOIuxa13Agj2qN5DcEzl6QqHIuTRCqqigcf2rb24yLU0R3x0DlU7zxyiu94XDvW28BHXd+TYZTQ3RF7Uz3cMqKuLXKwynelOH4F9YSns48tO575gkASpjIIzgDDE7NxBcPDs7eWx5mTes+aJ7AWzgDL11BETpfEDhbzxdOr4dwqslMQ+Bc9ABOh6oycNicE3BV7YNUrEok1tYSC6BEwnu3NjhoMbBwrvEQzuhoDYQDNVo6zuF0nxxVxZBcVBSNtgtbr0WCAYuh54XOoHpfA3ldEMKxTIBwIr293s85GBR0uIVzZIAKMmZw1Nyjzd9PQSDt91d480aFE/Yy260Zf2Jt6q5lGoTTW4mAQAkKXMFRVd1xD6NoDZy/ldcJM67qfZAqYzljdN8ppYys1c7O2nfv37//oLazs5NeanrU0tISBDZB+P3ojNOiMnsZ4Vx3CZwa7+Cc/MGDBw8evtehgfOwIrN0iVQ4HoYd8gJUXTytdta2HT179uz7bbW1tXgh00L0qDccREgtj3/orKhMIBA4U8ZyyLTjCZzvPjiLevD9i0rezSkZTmX3PTMKHA8zHVMqL5uOEQ5h83KLRo+dDQ5gE2gqZzlIB+GcCQRs56yDc5bpwfeUrH9UpTRwwX7uNrTH4HhZRsKvjCw2kxngUDZ6OE2OijKHU3MF4Rxrgr/bzVQL50dgOA9/8ndQ9x/IpvPS3zf1TiXYpjTE0xXEA7YT9jYaEPwqnH260qFwjr6PcNqgSx+XwGlxBmcQOj9Qzq1hUOABnNF/ACyi2IB05Hxf2sZIdH+NwQkGIzDAtz/44IMtdEOOmgFavUx0/m9A/0henoKrY2uJqdJ57bVLa6hLTsrRwSFbOACnFvi0wT+0nDOlcBy6NWI6JnBqqr2B81AUxX/SwKkhy+vAlAIHopzaBxDuzOMLZ80QhFPQRTBy30UXSl7WXha2qm5W+VPzhphwq4rJEZyUHg7oMkIh/6DMcEYDJxJpcRMQAGhzOBcpHNvreK1b+zH01U/EIvz8qeIvmwgc6rzhVRib5ocUN6GBLzttB4NzVAOnKB8Z6OjQLTfHcOZL4dDiGJxw4Ano1Cn4EQmHCZ1Vp22CWbPJDE7NSfdwWLB29uz9f5ZzvUfbRIZgAndx2ioD59EleW9NF7FfqnIHJwVLHOKSU72y5SjqPEW3O8OD7DfScerUUBlTy/ECzpEf36dwFMOpkUiT9udTNBzNDGKnvg9J/J7BoT5GPc/RbqxVuYJTvLsfDFCzny/S3VsCh46H1XCJIi2PnDZJyDQFmpYbTx4Z8BTO5OjXFD2khnNP2Vq7RbxaMAgRG3U4xHKO1h71xHL8nZ3vUzidKhyNX1O9mjM41FqmYGTN4/tMRnjSdvnUagTxBEvZhJ84n3FoLP0b7WGbZs4ZpXDsmqXyDAEuZDvuETY/Uw9FbwWZAsG7ZBFKehVV6xoOTswspzYVjt87OFs/JzXfT0GgIeAGy16YtSbywzJ20/uo5bHjAJTACTTtNYBaS/TCccdwNCcEPwPH9gvNwYEU1GovI7R1KtGOeziaCUCFkxhTtOvOrW2tBUi1E2t394N6ZcCMFEVWUU8wVrM4MD1AGez9QCTQ0NfXYJQMx27uxsO2X9z/qfbtxJi+UYHVy7VKz1YGjj+lyh2cbT+FEwgEjdKN4SePlUWOc8uhdCKRQQs4dicdI5y3/+VfdYdtqalI0NC21csVtRydXMEZmy+BUh6O2+0BqkwgGAH1oVtjUFoNcGz6NQXOxAQ5enj7zV9OqGgmJmD4LkztG/hEvIbT9rIJHEbn5s01B8Xszt8twyW8lzH00fm/VvRNp02CZQ7aDaihb+dEH1C5ih14tVUHx6bpQCj9JbJPAyHgFQoHM1WO3+iBiH/tro7PqbbOTtc7BFo430iYwCHaLRadPGu4m0oEjFzKpTt/VNG7TpuEbAgdsaE7Go32tbb2ETh6ywHTEX31h1OdaApHPuBRTkRSC72Dmrlnb2/vzN7hS9LIJ5Zxa9/4Nws4uPSRhobidbbKEYSZVGoqgIMK/hssz8UI56jjnVfS9wGpoeFe47Pm6AtgMWg0rQY4MKfFfXWH0rB0EJxXNTsg27gI1ftsMXa4gjTyDZeF0/W6heVAdD0U8x2yUawYH8LxpxJ39/enEn7LY1wtnPNO4ZwhnR8Bd/bt3z473g5U+qh0cNCviYeUuVs7QvH8uwpH3lfBxYISEx62IH2hZeDU1/f8B3n4hjx/g4/ggGZY0QknJQkCOeogzxBbn7Fr4Tj3axQOuLWdxsad1obWqxNs8m7VwrEVTR9gOZ88fV3WU/Wr0d2e6pSFA+qimpbTKc85Oyvmq6p+ZZVOB8d52+icA9FaXz/xZleZdJZjKyQwgTPK6HyprktRj+NqG2UGx0c1LJckw3H40YZ6te5dVum0cJxPOkKGRNIRZZ3TWrrOcQOnA+G8+baGzqhPVcyz/6vAKboDpJEOjlKSYjnOni2ZVus+PGSRTgen11FR9AkPZBOwWoQ6hQMkrtCFDqEzMUpNRwPHN31wdgdLjMfjv/4ro36tgyN3pQLngE8Nmig+rNa9ziKdzq3tOyqKTTkQrDcoi1AWDXgAh2yeVuvoDBjhxLz4UKu0OFJGsfJw5KPMVMIJniENHCvT0VmOKziBDLC5d+f0CyQggE40LkKdw2GPxSueDQ+OfqelE3dYca2kxVgZjZA1jK+uvOWQdbB91yZp4PjqzdN5AmePRmuDDVdhnUNCaRoMeAdHT+dro6Oj/+mV6QzFUaIg/dci0wWduki0poezrT4EAFGB7cfbxdjhZkydW3M65wh7dONz717jHVyEttKTAxIXeASnhhzl/PLNNxEOPh91jtkM7TQXphMfBo2I6oLl1u5MokR6ODN+rVK26VDLqeshv8yDzZ9/U9V554cGQAcjgquN3c+iMNn0eRdK621HhXOnjvYWnVyHHddcmI4hHGX4bq+pB2ka6eDoDAdtx+7EQ71kPXVv5qYzGB4c7A0O0mcJnLWOaI9ufLafO/eOvPEJ0061h3Au6uE8Y3Coi7CMSK0lDaGYXyxeKotGD8fIxv56RzYZmqtpsIlUenvZeajjBoJyuPGpRmsNZbZvbD2mH2qctITTTOFIrKE+N3VXVCxPRoHT9Zutre0ZlU1iJrFAHJvNTzrEGRQatpnOmFo4rj7jcO23UkOfcZ2jn3Nsbt9Yw4nKsyltoAvTUVU0MRsVzlfJR4KoFl5PtvflLww/tW86xBfDRCkOW86YWjjOpxzQucarpXAa3MDRfT7nyIAGzgTC+Z086Oqcmg51aEOqWzNFo8JRo4CnI7H29vbCYuxC7EO7McEQg8NMyMx0tHBcbRseAo6t/I1wjpCnOz76iH6rx8WLKpwDfIO54hgKUJGAYNfccErgpH5/ITaSbG9P4urowlObfo3CAWMXLc3+cwOHGM5HH3/8BxJqdFRH62R7oSGBxVrOTBo4iNbCqZXC+fDCSGwxD6YTj40AnQ/tfYFIXInSyObD8CEsx37zNEI4EAdotjzZowSOAwI9HLSXP3wcCjE6EySUJkNOkn2EXdHlZ5wtQoUxCzZGOAsXYrHFeD/A6e+fRuOZt1VyveKIfVYDyzM4O42fXO0rp9PRfBM777GTnwEOMZw/in/6k/hHCofsEMQwJfERHuxMW7Exwvn9SGwkHqJwQtPw5r/tlERsnfoy4tYOERC4+0BqaHKSfHfdcb2ix6NfDjA29uEMaA2nurpf/POfxX66hlLNhYQ+MVeVJ7LyakY4uO3W30/h9PeDY/sfOyUNKTUmmEwHlmdwhNDOnWv4bXinDTqmsInYmXR0ljNAPzavgXNvWAkCCBy7pwalZ8eWU44BzgIajgoHTOd/7RQ+rQwsKWY1sDRwXEXSqjJNBilsIna2CPC5tQlF1Fo6OjreZo/k/gXbR4lMO1jmDI3oN58XJfZFKoeEA6FaXoUTh+DATunqwCI2ZLq5poHj1ccqM4FSRahs5HLAd9/0+Hx1zB30OAikh7T7wvR+azhdDA5ZgqYAziLCYbIJB82FDSyEYz6wVDiOt6RLVEInIssG/wPgaEYchj5W54nlJNX36FQvCkV8quaSItyKVt9dmqb61QwVGN60CqcH3tooHP0wG1jkpenA0liOzfZZKFMejYdw/qK2D52EmyMDWeKFrq565bMR/dYPX/hg0lHYSIuxETsPmfSoA4u4ZNOEFYGDm9QUTFMk4ozNAXD+b1ixFgx4PHnEo4dAJodRQmuPNfEh5BFicHwwZ9mY87QV7hmWHVw57Q0O4qkByKN4QFYwYpT1VyQZZQmnAzxMD+sPsQdee1FjOhWQbxOX6ocPOCMCRzZSj2RCElqRnZ09CSosA8F2mA4sUULJ0aS3CkQcmw1qsvuTDjNVayvsWeXjSCc2HY/XW64+iPCJg5HF+unpOtwfWLRV/iHrrmXj/deyD2qsxr5dvtc4SRZO1669WKLT2hp7V/s4PbijG6kHOKqhRTSeEQzJRxZteVVtd1vVXcumAt+ZL9uO1dfxmWunsZF8Jfuzkq/Kbz5+2Aba1JCPPRcT6zkwQ8m3SBZLYD/2Ci+te/n7KwxHAJMJWHzE4QD1v3fs2LGdnROl+k6F4ACeaYjM6+OHMoWh6eFYzDdtNxg5LJzDJeDi4uLi4uLi4uLi4uLi4uLi4uLi+mLq/wESlypQqbOxPQAAAABJRU5ErkJggg==" alt="Tracking Icon" class="tracking-image"> <!-- Image added here -->
+                <form id="trackOrderForm">
+                    <div class="input-group">
+                        <input type="text" id="orderId" placeholder="Enter your Order ID" required>
+                        <button type="submit">Track Order</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="orderStatus" class="order-status" style="display: none;">
+                <h2>Order Status</h2>
+                <p id="statusMessage"></p>
+                <h3>Order Details</h3>
+                <ul id="orderDetails"></ul>
+            </div>
+        </div>
+    </main>
+    <script src="track_order.js"></script>
+</body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KicksCove Shoes Marquee</title>
+    <style>
+        .marquee-container {
+            overflow: hidden;
+            position: relative;
+            background-size: cover; 
+            background-position: center; 
+            border: 2px solid #1a1f71; 
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            font-size: 1.5em;
+            color: #1a1f71;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .marquee-container:hover {
+            background-color: #ff8c00; 
+            color: white; 
+            border-color: #ff8c00; 
+        }
+
+        .marquee-container:hover .marquee {
+            animation-play-state: paused;
+        }
+
+        .highlight {
+            color: #ff5722; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee">
+            Walk the Walk: <span class="highlight">KicksCove</span> Shoes for Those Who Dare to Stand Out in Style
+            &nbsp; &nbsp; &nbsp;
+            Walk the Walk: <span class="highlight">KicksCove</span> Shoes for Those Who Dare to Stand Out in Style
+        </div>
+    </div>
+
+</body>
+</html>
