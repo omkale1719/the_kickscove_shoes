@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const initdata = require("./men_data.js");
 const men = require("../model/men.js");
 
-const mongo_URL = "mongodb://127.0.0.1:27017/shoes_palace";
+const mongo_URL = "mongodb+srv://omkale0107:KpQXxecPPRt7WAin@cluster0.9e6ps.mongodb.net/shoes_palace?retryWrites=true&w=majority"; // MongoDB Atlas URI लोड करा
 
 // Connect to MongoDB
 main()
