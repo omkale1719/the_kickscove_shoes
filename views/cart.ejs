@@ -111,7 +111,7 @@
                 <div class="empty-wishlist">
                     <h2>The Cart is Empty</h2>
                     <p>Your Cart is currently empty. Add items you love to it!</p>
-                    <a href="/showall" class="btn1 btn-primary">Browse Products</a>
+                    <a href="/" class="btn1 btn-primary">Browse Products</a>
                     <img src="/assets/images/Ecart.jpeg" alt="Empty Wishlist" class="empty-image"> 
                 </div>
             </div>
@@ -143,6 +143,6 @@
                 <strong>Total Amount: &#8377;<%= cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toLocaleString("en-IN") %></strong>
             </div>
         <% } %>
-        <a href="/showall" class="btn2 btn-primary">Continue Shopping</a>
+        <a href="/" class="btn2 btn-primary">Continue Shopping</a>
     </div>
 </body>

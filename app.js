@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 // Importing essential modules
 const express = require("express");
 const app = express();
@@ -12,6 +15,7 @@ const Kids = require("./model/kids.js");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const Wishlist = require("./model/wishlist.js");
 
 // Setting up EJS as the view engine and configuring view file paths
@@ -27,17 +31,20 @@ app.use(express.urlencoded({ extended: true }));
 // Session management setup to handle user sessions, cookies, etc.
 app.use(
   session({
-    secret: "your_secret_key", // Should be stored securely in production
+    secret: process.env.SECREAT, // Should be stored securely in production
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false },
   })
 );
 
+const dbUrl = process.env.AtlasDb_Url;
+
+
 // Connect to MongoDB database
 async function main() {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/shoes_palace");
+    await mongoose.connect(dbUrl);
     console.log("Connection successful");
   } catch (err) {
     console.log("Connection error", err);
@@ -45,10 +52,24 @@ async function main() {
 }
 main();
 
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+      secret: process.env.SECREAT,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", (err) => {
+  console.log("Error in MongoDB session store:", err);
+});
+
+
+
 // Routes to render different product listings and detail pages
 
 // Show all listings
-app.get("/showall", async (req, res) => {
+app.get("/", async (req, res) => {
   const allListing = await Listing.find({});
   res.render("./listings/showall.ejs", { allListing });
 });
