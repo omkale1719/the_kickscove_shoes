@@ -118,7 +118,7 @@ function buyNow() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            window.location.href = 'http://localhost:3000/buy_now1'; // Redirect to confirmation page
+            window.location.href = '/buy_now1'; // Redirect to confirmation page
         } else {
             showSnackbar('Error processing order: ' + data.message, 'error');
         }
